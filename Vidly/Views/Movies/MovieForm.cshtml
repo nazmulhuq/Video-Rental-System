@@ -1,0 +1,77 @@
+﻿@model Vidly.ViewModels.MovieFormViewModel
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>@Model.Title</h2>
+
+@using (Html.BeginForm("Save", "Movies"))
+{
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.ReleaseDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @{
+                if (Model.Id == 0)
+                {
+                    @Html.TextBoxFor(model => model.ReleaseDate, new { @type = "date", @class = "form-control datepicker", Value = DateTime.Today.Date.ToString("yyyy-MM-dd") })
+                }
+
+                else
+                {
+                    @Html.TextBoxFor(model => model.ReleaseDate, new { @type = "date", @class = "form-control datepicker", Value = Model.ReleaseDate.Value.ToString("yyyy-MM-dd") })
+                }
+
+            }
+
+            @Html.ValidationMessageFor(model => model, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.DateAdded, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @{
+                if (Model.Id == 0)
+                {
+                    @Html.TextBoxFor(model => model.DateAdded, new { @type = "date", @class = "form-control datepicker", Value = DateTime.Today.Date.ToString("yyyy-MM-dd") })
+                }
+
+                else
+                {
+                    @Html.TextBoxFor(model => model.DateAdded, new { @type = "date", @class = "form-control datepicker", Value = Model.DateAdded.Value.ToString("yyyy-MM-dd") })
+                }
+
+            }
+
+            @Html.ValidationMessageFor(model => model.DateAdded, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.StockNumber)
+        @Html.TextBoxFor(m => m.StockNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.StockNumber)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.GenreId)
+        @Html.DropDownListFor(m => m.GenreId, new SelectList(Model.Genres, "Id", "Name"), "Select Genre", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.GenreId)
+    </div>
+
+
+    @Html.HiddenFor(m => m.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
