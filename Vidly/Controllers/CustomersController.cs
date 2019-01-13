@@ -24,7 +24,11 @@ namespace Vidly.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            return View();
+            if(User.IsInRole(RoleName.CanManageAll))
+            {
+                return View("List");
+            }
+            return View("ReadOnlyList");
         }
 
         public ActionResult Details(int id)
@@ -36,7 +40,8 @@ namespace Vidly.Controllers
             return View(customer);
             
         }
-        
+       
+        [Authorize(Roles = RoleName.CanManageAll)]
         public ActionResult New()
         {
  
@@ -81,6 +86,7 @@ namespace Vidly.Controllers
             return RedirectToAction("Index","Customers");
         }
 
+        [Authorize(Roles = RoleName.CanManageAll)]
         public ActionResult Edit(int id)
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);

@@ -160,3 +160,7 @@ C:\Projects\vidly\Vidly\bin\System.Web.Http.WebHost.xml
 C:\Projects\vidly\Vidly\bin\AutoMapper.dll
 C:\Projects\vidly\Vidly\bin\AutoMapper.xml
 C:\Projects\vidly\Vidly\obj\Debug\Vidly.Migrations.SeedUser.resources
+C:\Projects\vidly\Vidly\obj\Debug\Vidly.Migrations.AddDrivingLicenseToApplicationUsers.resources
+C:\Projects\vidly\Vidly\obj\Debug\Vidly.Migrations.AddCanManageAllRole.resources
+C:\Projects\vidly\Vidly\obj\Debug\Vidly.Migrations.AddUserToCanManageMovieRole.resources
+C:\Projects\vidly\Vidly\obj\Debug\Vidly.Migrations.AddPhoneToApplicationUsers.resources

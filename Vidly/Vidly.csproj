@@ -19,7 +19,7 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44359</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -347,6 +347,22 @@
     <Compile Include="Migrations\201901051857296_SeedUser.Designer.cs">
       <DependentUpon>201901051857296_SeedUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901071925392_AddDrivingLicenseToApplicationUsers.cs" />
+    <Compile Include="Migrations\201901071925392_AddDrivingLicenseToApplicationUsers.Designer.cs">
+      <DependentUpon>201901071925392_AddDrivingLicenseToApplicationUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901101935057_AddCanManageAllRole.cs" />
+    <Compile Include="Migrations\201901101935057_AddCanManageAllRole.Designer.cs">
+      <DependentUpon>201901101935057_AddCanManageAllRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901101958154_AddUserToCanManageMovieRole.cs" />
+    <Compile Include="Migrations\201901101958154_AddUserToCanManageMovieRole.Designer.cs">
+      <DependentUpon>201901101958154_AddUserToCanManageMovieRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901110719437_AddPhoneToApplicationUsers.cs" />
+    <Compile Include="Migrations\201901110719437_AddPhoneToApplicationUsers.Designer.cs">
+      <DependentUpon>201901110719437_AddPhoneToApplicationUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -599,7 +615,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Customers\ReadOnlyList.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Movies\List.cshtml" />
@@ -607,6 +623,7 @@
     <Content Include="Views\Movies\MovieForm.cshtml" />
     <Content Include="Views\Customers\Save.cshtml" />
     <Content Include="Views\Movies\ReadOnlyList.cshtml" />
+    <Content Include="Views\Customers\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -718,6 +735,18 @@
     <EmbeddedResource Include="Migrations\201901051857296_SeedUser.resx">
       <DependentUpon>201901051857296_SeedUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901071925392_AddDrivingLicenseToApplicationUsers.resx">
+      <DependentUpon>201901071925392_AddDrivingLicenseToApplicationUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901101935057_AddCanManageAllRole.resx">
+      <DependentUpon>201901101935057_AddCanManageAllRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901101958154_AddUserToCanManageMovieRole.resx">
+      <DependentUpon>201901101958154_AddUserToCanManageMovieRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901110719437_AddPhoneToApplicationUsers.resx">
+      <DependentUpon>201901110719437_AddPhoneToApplicationUsers.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -737,7 +766,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>1790</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1790/</IISUrl>
+          <IISUrl>https://localhost:44359/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

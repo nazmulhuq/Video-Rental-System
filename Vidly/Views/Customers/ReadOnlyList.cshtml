@@ -1,0 +1,47 @@
+﻿@model Vidly.ViewModels.IndexCustomerViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Customers</h1>
+<a class="btn btn-primary" href="/Customers/New" role="button">New Customer</a>
+<table class="table table-bordered table-hover" id="customers">
+    <thead>
+        <tr>
+            <th>Customer</th>
+            <th>MembershipType</th>
+        </tr>
+    </thead>
+    <tbody>
+    </tbody>
+
+</table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+
+            //Creating the table markup
+            var table = $("#customers").DataTable({
+                ajax: {
+                    url: "/api/customers",
+                    dataSrc: "",
+                },
+                columns: [
+                    {
+                        data: "name",
+                        render: function (data, type, customer) {
+                            return "<a href='customers/details/" + customer.id + "'>" + customer.name + "</a>";
+                        }
+                    },
+                    {
+                        data: "membershipType.name",
+                    }
+                ]
+            });
+
+        });
+    </script>
+}
